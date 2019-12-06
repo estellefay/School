@@ -3,6 +3,7 @@ var http = require('http');
 var router = express.Router();
 const Formation = require('../models/formation');
 const formationCtrl = require('../controllers/formation');
+const auth = require('../middleware/auth');
 
 
 /* GET home page. */
@@ -14,9 +15,9 @@ router.get('/', function(req, res, next) {
  * Obtenir toutes les formations
  */
 router.get('/formation', formationCtrl.getAllFormation);
-router.post('/formation', formationCtrl.createFormation);
-router.put('/formation/:id', formationCtrl.updateFormation);
-router.delete('/formation/:id', formationCtrl.deleteFormation);
+router.post('/formation', auth, formationCtrl.createFormation);
+router.put('/formation/:id', auth, formationCtrl.updateFormation);
+router.delete('/formation/:id', auth, formationCtrl.deleteFormation);
 router.get('/formation/:id', formationCtrl.getOneFormation);
 
 
