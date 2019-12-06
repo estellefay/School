@@ -1,0 +1,9 @@
+<p>formation works!</p>
+<ul>
+  <li *ngFor="let formation of formations; let i = index">
+    <a [routerLink]="['/formation-details', formation._id]">{{formation.name}}</a>
+    <p>{{formation.level}}</p>
+    <p>{{formation.price}}</p>
+
+  </li>
+</ul>
