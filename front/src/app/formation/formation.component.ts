@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormationService } from '../services/formation.service';
 import { Config } from 'protractor';
 import { HttpClient } from '@angular/common/http';
-import { Formation } from '../formation';
 
 
 

@@ -14,7 +14,13 @@ exports.signup = (req, res, next) => {
       user.save().then(
         () => {
           res.status(201).json({
-            message: 'Utilisateur ajouté'
+            message: 'Utilisateur ajouté',
+            userId: user._id,
+            token: jwt.sign(
+              { userId: user._id },
+              'RANDOM_TOKEN_SECRET',
+              { expiresIn: '24h' }
+            )
           });
         }
       ).catch(
@@ -27,6 +33,7 @@ exports.signup = (req, res, next) => {
  };
 
  exports.login = (req, res, next) => {
+   console.log(req.body["email"])
     User.findOne({ email: req.body.email })
       .then(user => {
         // Rechercher l'utilisateur

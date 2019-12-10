@@ -22,10 +22,6 @@ router.get('/formation/:id', formationCtrl.getOneFormation);
 
 
 
-
-
-
-
 // router.get('/formation', function(req, res, next) {
 //   Formation.find()
 //   .then(formations => res.status(200).json(formations))
